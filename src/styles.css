@@ -48,3 +48,8 @@ button {
     cursor: pointer;
     user-select: none;
 }
+
+#timeInput{
+    margin-top: 30px;
+    padding: 10px;
+}

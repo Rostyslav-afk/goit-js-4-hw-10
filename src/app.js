@@ -69,3 +69,19 @@ clickBox.addEventListener('click', () => {
         clickedText.textContent = `Your Clicks:${thirdScore}`;
     }
 });
+
+// 4 Завдання
+
+const input = document.getElementById('timeInput');
+
+input.addEventListener('change', () => {
+    const seconds = input.value.trim();
+
+    if (!isNaN(seconds) && seconds > 0) {
+        setTimeout(() => {
+            alert("Час вийшов!");
+        }, seconds * 1000);
+    } else {
+        alert("Будь ласка, введіть коректне число більше нуля.");
+    }
+});
