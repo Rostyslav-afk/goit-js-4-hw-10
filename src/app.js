@@ -17,3 +17,55 @@ firstButton.addEventListener("click", () => {
         }
     }, 1000);
 });
+
+// 2 Завдання
+
+const secondbox = document.querySelector(".box");
+const secondBoxChildren = secondbox.children;
+
+const secondColors = ["blueviolet", "golden", "firebrick", "seagreen", "teal"];
+const secondSizes = ["300px", "10px", "120px", "90px", "180px"];
+
+let secondIndex = 0;
+
+const secondInterval = setInterval(() => {
+    for (let el of secondBoxChildren) {
+        secondIndex += 1;
+        if (secondIndex === 5) {
+            secondIndex = 0;
+        };
+        el.style.backgroundColor = `${secondColors[secondIndex]}`;
+        el.style.width = `${secondSizes[secondIndex]}`;
+    };
+}, 2000);
+
+
+// 3 Завдання
+
+const clickBox = document.querySelector('.clickingEl');
+const clickedText = document.querySelector('.clickedText');
+
+let thirdScore = 0;
+let thirdTimeLeft = 5;
+let thirdTimerStarted = false;
+
+function startTimer() {
+    thirdTimerStarted = true;
+
+    const interval = setInterval(() => {
+        thirdTimeLeft -= 1;
+        if (thirdTimeLeft <= 0) {
+            clearInterval(interval);
+            clickBox.style.pointerEvents = 'none';
+            clickBox.textContent = 'Game Over!';
+        }
+    }, 1000);
+}
+
+clickBox.addEventListener('click', () => {
+    if (!thirdTimerStarted) startTimer();
+    if (thirdTimeLeft > 0) {
+        thirdScore += 1;
+        clickedText.textContent = `Your Clicks:${thirdScore}`;
+    }
+});
